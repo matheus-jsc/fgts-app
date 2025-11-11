@@ -8,7 +8,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Result'>;
 
 export const ResultScreen = ({ route }: Props) => {
   const theme = useTheme();
-  const { amount, birthDate, hasBirthdayThisYear } = route.params;
+  // const { amount, birthDate, hasBirthdayThisYear } = route.params;
   
   return (
     <View style={{ 
@@ -23,7 +23,6 @@ export const ResultScreen = ({ route }: Props) => {
       }}>
         Resultado
       </Text>
-      {/* Conteúdo do resultado */}
     </View>
   );
 };

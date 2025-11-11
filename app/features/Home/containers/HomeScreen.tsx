@@ -4,7 +4,6 @@ import { useTheme } from 'styled-components/native';
 
 export const HomeScreen = () => {
   const theme = useTheme();
-  console.log('Chega aqui na Home')
   return (
     <View style={{ 
       flex: 1, 
