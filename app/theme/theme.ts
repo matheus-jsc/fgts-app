@@ -1,59 +1,10 @@
-import { DefaultTheme } from 'styled-components/native';
+import { Theme } from './types';
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    colors: {
-      primary: string;
-      secondary: string;
-      background: string;
-      surface: string;
-      error: string;
-      success: string;
-      text: {
-        primary: string;
-        secondary: string;
-        disabled: string;
-      };
-    };
-    spacing: {
-      xs: number;
-      sm: number;
-      md: number;
-      lg: number;
-      xl: number;
-      xxl: number;
-    };
-    radius: {
-      sm: number;
-      md: number;
-      lg: number;
-      full: number;
-    };
-    typography: {
-      h1: {
-        fontSize: number;
-        lineHeight: number;
-        fontWeight: string;
-      };
-      h2: {
-        fontSize: number;
-        lineHeight: number;
-        fontWeight: string;
-      };
-      body: {
-        fontSize: number;
-        lineHeight: number;
-      };
-      caption: {
-        fontSize: number;
-        lineHeight: number;
-        color: string;
-      };
-    };
-  }
+  export interface  DefaultTheme extends Theme {}
 }
 
-export const lightTheme: DefaultTheme = {
+export const lightTheme: Theme = {
   colors: {
     primary: '#356DF3',
     secondary: '#5B8AFF',
@@ -82,6 +33,12 @@ export const lightTheme: DefaultTheme = {
     full: 999,
   },
   typography: {
+    fonts: {
+      regular: 'Montserrat-Regular',
+      medium: 'Montserrat-Medium',
+      semiBold: 'Montserrat-SemiBold',
+      bold: 'Montserrat-Bold',
+    },
     h1: {
       fontSize: 24,
       lineHeight: 32,
@@ -104,7 +61,7 @@ export const lightTheme: DefaultTheme = {
   },
 };
 
-export const darkTheme: DefaultTheme = {
+export const darkTheme: Theme = {
   ...lightTheme,
   colors: {
     ...lightTheme.colors,
