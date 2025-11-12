@@ -7,3 +7,9 @@ export interface InputProps extends TextInputProps {
   mask?: Mask;
   containerStyle?: any;
 }
+
+export interface InputContainerProps {
+  isFocused: boolean;
+  hasError: boolean;
+}
+

@@ -5,3 +5,7 @@ export interface MonthPickerProps {
   minimumDate?: Date;
   maximumDate?: Date;
 }
+
+export interface MonthButtonProps {
+  isSelected?: boolean;
+}

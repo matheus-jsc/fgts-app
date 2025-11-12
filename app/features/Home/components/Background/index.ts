@@ -1,2 +1,2 @@
 export { default } from './Background';
-export * from './types';
+export * from './props';

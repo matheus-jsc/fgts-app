@@ -6,6 +6,7 @@ import * as Font from 'expo-font';
 import { ActivityIndicator, View } from 'react-native';
 import { lightTheme } from './app/theme/theme';
 import { AppNavigator } from './app/navigation/AppNavigator';
+import { AppProvider } from './app/features/Home/contexts/AppContext';
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -35,8 +36,10 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={lightTheme}>
-        <StatusBar style="dark" />
-        <AppNavigator />
+        <AppProvider>
+          <StatusBar style="dark" />
+          <AppNavigator />
+        </AppProvider>
       </ThemeProvider>
     </SafeAreaProvider>
   );

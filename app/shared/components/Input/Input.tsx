@@ -9,7 +9,7 @@ import {
   InputField, 
   ErrorText
 } from './Input.styles';
-import { InputProps } from './types';
+import { InputProps } from './props';
 
 const Input = forwardRef<RNTextInput, InputProps>(
   ({ label, error, mask, containerStyle, ...otherProps }, ref) => {

@@ -1,12 +1,8 @@
 import React from 'react';
-import { TouchableOpacityProps, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import { useTheme } from 'styled-components/native';
 import { Container, ButtonText } from './Button.styles';
-
-export interface ButtonProps extends TouchableOpacityProps {
-  title: string;
-  fetching?: boolean;
-}
+import { ButtonProps } from './props';
 
 const Button: React.FC<ButtonProps> = ({ 
   title,

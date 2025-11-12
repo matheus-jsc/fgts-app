@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView, StatusBar, Alert } from 'react-native';
+import React from 'react';
+import { KeyboardAvoidingView, Platform, ScrollView, StatusBar } from 'react-native';
 import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../navigation/types';
-import { Icons } from '@shared/utils';
 import { Masks } from 'react-native-mask-input';
 
+import { Icons } from '@shared/utils';
 import { Input, Button, MonthPicker } from '@shared/components';
+
 import { Background } from '../components';
-import { validateForm } from '../validations/schema';
-import { FormData } from '../entities';
+import { useApp } from '../contexts/AppContext';
 
 import {
   MainContainer,
@@ -22,55 +20,36 @@ import {
   Form,
   FormGroup,
   ButtonContainer,
+  ErrorText,
 } from './HomeScreen.styles';
 
 export const HomeScreen = () => {
   const theme = useTheme();
-
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    phone: '',
-    fgtsBalance: '',
-    birthMonth: new Date(),
-  });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const handleChange = (field: keyof FormData, value: string | Date) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-    
-    if (errors[field]) {
-      setErrors(prev => ({
-        ...prev,
-        [field]: ''
-      }));
-    }
-  };
-
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, 'Home'>>();
+  const navigation = useNavigation<any>();
+  const {
+    ui: { isLoading, error },
+    setError,
+    clearError,
+    formData,
+    errors,
+    handleChange,
+    validateForm: validateFormData
+  } = useApp();
 
   const handleSubmit = async (): Promise<void> => {
     try {
-      const { isValid, errors } = await validateForm(formData);
+      clearError();
+      const isValid = await validateFormData();
       
-      if (!isValid) {
-        setErrors(errors);
-        return;
+      if (isValid) {        
+        navigation.navigate('Result', {
+          name: formData.name,
+          fgtsBalance: formData.fgtsBalance
+        });
       }
-      
-      setErrors({});
-      
-      const amount = parseFloat(formData.fgtsBalance.replace(/[^0-9,-]+/g, '').replace(',', '.')) || 0;
-      
-      navigation.navigate('Result', {
-        amount,
-        birthDate: formData.birthMonth.toISOString(),
-        hasBirthdayThisYear: new Date().getMonth() >= formData.birthMonth.getMonth()
-      });
-    } catch {
-      Alert.alert('Erro', 'Ocorreu um erro ao processar o formulário. Tente novamente.');
+    } catch (error) {
+      console.error('Erro ao processar o formulário:', error);
+      setError('Ocorreu um erro ao processar o formulário. Por favor, tente novamente.');
     }
   };
 
@@ -140,9 +119,14 @@ export const HomeScreen = () => {
                 </FormGroup>
                 <ButtonContainer>
                   <Button
-                    title="Ver Proposta"
+                    title={isLoading ? 'Validando...' : 'Ver Proposta'}
                     onPress={handleSubmit}
+                    fetching={isLoading}
+                    disabled={isLoading}
                   />
+                  {error && (
+                    <ErrorText>{error}</ErrorText>
+                  )}
                 </ButtonContainer>
               </Form>
             </Container>

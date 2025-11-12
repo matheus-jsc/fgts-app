@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { StyledTitleTextProps } from './types';
+import { StyledTitleTextProps } from './props';
 import { Theme } from 'app/theme/entities';
 
 interface ThemeProps {

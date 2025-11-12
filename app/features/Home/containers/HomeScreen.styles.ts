@@ -63,3 +63,11 @@ export const FormGroup = styled.View`
 export const ButtonContainer = styled.View`
   margin-top: ${({ theme }: ThemeProps) => theme.spacing.lg}px;
 `;
+
+export const ErrorText = styled.Text`
+  font-family: ${({ theme }: ThemeProps) => theme.typography.fonts.regular};
+  font-size: ${({ theme }: ThemeProps) => theme.typography.caption.fontSize}px;
+  color: ${({ theme }: ThemeProps) => theme.colors.error};
+  text-align: center;
+  margin-top: ${({ theme }: ThemeProps) => theme.spacing.sm}px;
+`;

@@ -1,6 +1,5 @@
 import React from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../navigation/types';
+import { StatusBar } from 'react-native';
 import {
   Title,
   ResultImage,
@@ -12,11 +11,10 @@ import {
 import { Images } from '../../../theme';
 import { TitleValue } from '../../../shared/components';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Result'>;
-
-export const ResultScreen = ({}: Props) => {
+export const ResultScreen = () => {
   return (
       <>
+      <StatusBar barStyle='dark-content' />
         <ResultImage source={Images.results} resizeMode="cover"/>
         <Content>
           <Title>{'Olá Matheus!'}</Title>

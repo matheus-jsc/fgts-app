@@ -1,13 +1,12 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { RootStackParamList } from './types';
 
 // Import das telas
 import { HomeScreen } from '../features/Home/containers/HomeScreen';
 import { ResultScreen } from '../features/Result/containers/ResultScreen';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 export const AppNavigator: React.FC = () => {
   return (

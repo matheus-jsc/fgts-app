@@ -1,6 +1,10 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "typeRoots": [
+      "./node_modules/@types",
+      "./app/shared/types"
+    ],
     "strict": true,
     "esModuleInterop": true,
     "baseUrl": ".",

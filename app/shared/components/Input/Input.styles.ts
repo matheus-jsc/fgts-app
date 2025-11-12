@@ -1,14 +1,9 @@
-import styled from 'styled-components/native';
+import styled, { DefaultTheme } from 'styled-components/native';
 import { TextInput as RNTextInput } from 'react-native';
-import { DefaultTheme } from 'styled-components';
+import { InputContainerProps } from './props';
 
 interface ThemeProps {
   theme: DefaultTheme;
-}
-
-interface InputContainerProps {
-  isFocused: boolean;
-  hasError: boolean;
 }
 
 export const Container = styled.View`

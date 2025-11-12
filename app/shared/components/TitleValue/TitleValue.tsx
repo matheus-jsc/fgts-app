@@ -1,5 +1,5 @@
 import React from 'react';
-import { TitleValueProps } from './types';
+import { TitleValueProps } from './props';
 import { 
   TitleText, 
   Value, 

@@ -3,7 +3,7 @@ import styled, { DefaultTheme } from 'styled-components/native';
 
 const screenHeight = Dimensions.get('window').height;
 
-interface ThemedProps {
+interface ThemeProps {
   theme: DefaultTheme;
 }
 
@@ -13,7 +13,7 @@ export const TopContainer = styled.View`
   left: 0;
   right: 0;
   height: ${screenHeight / 2}px;
-  background-color: ${({ theme }: ThemedProps) => theme.colors.primary};
+  background-color: ${({ theme }: ThemeProps) => theme.colors.primary};
 `;
 
 export const BottomContainer = styled.View`
@@ -22,5 +22,5 @@ export const BottomContainer = styled.View`
   left: 0;
   right: 0;
   height: ${screenHeight / 2}px;
-  background-color: ${({ theme }: ThemedProps) => theme.colors.background};
+  background-color: ${({ theme }: ThemeProps) => theme.colors.background};
 `;

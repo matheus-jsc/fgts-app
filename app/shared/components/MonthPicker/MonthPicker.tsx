@@ -19,7 +19,7 @@ import {
   IconContainer,
   DragHandle
 } from './MonthPicker.styles';
-import { MonthPickerProps } from './types';
+import { MonthPickerProps } from './props';
 
 const Months = [
   'JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN',

@@ -43,6 +43,7 @@
     "babel-plugin-module-resolver": "^5.0.2",
     "jest": "^29.7.0",
     "jest-expo": "^54.0.13",
+    "react-native-dotenv": "^3.4.11",
     "typescript": "~5.9.2"
   },
   "private": true

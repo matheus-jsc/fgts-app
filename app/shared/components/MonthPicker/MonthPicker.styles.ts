@@ -1,10 +1,8 @@
 import styled from 'styled-components/native';
 import { TouchableOpacity, Text, View } from 'react-native';
 import { DefaultTheme } from 'styled-components';
+import { MonthButtonProps } from './props';
 
-interface ButtonProps {
-  isSelected?: boolean;
-}
 
 interface ThemeProps {
   theme: DefaultTheme;
@@ -76,7 +74,7 @@ export const ModalTitle = styled(Text)`
   font-family: ${({ theme }: ThemeProps) => theme.typography.fonts.semiBold};
 `;
 
-export const MonthButton = styled(TouchableOpacity)<ButtonProps>`
+export const MonthButton = styled(TouchableOpacity)<MonthButtonProps>`
   flex: 1;
   min-width: 20%;
   margin: ${({ theme }: ThemeProps) => theme.spacing.xs}px;
@@ -84,14 +82,14 @@ export const MonthButton = styled(TouchableOpacity)<ButtonProps>`
   justify-content: center;
   align-items: center;
   border-radius: ${({ theme }: ThemeProps) => theme.radius.md}px;
-  background-color: ${({ theme, isSelected }: ButtonProps & ThemeProps) => 
+  background-color: ${({ theme, isSelected }: MonthButtonProps & ThemeProps) => 
     isSelected ? theme.colors.primary : `${theme.colors.primary}10`};
 `;
 
-export const MonthText = styled(Text)<ButtonProps>`
+export const MonthText = styled(Text)<MonthButtonProps>`
   font-size: ${({ theme }: ThemeProps) => theme.typography.caption.fontSize}px;
   line-height: ${({ theme }: ThemeProps) => theme.typography.caption.lineHeight}px;
-  color: ${({ theme, isSelected }: ButtonProps & ThemeProps) => 
+  color: ${({ theme, isSelected }: MonthButtonProps & ThemeProps) => 
     isSelected ? theme.colors.surface : theme.colors.text.primary};
   font-family: ${({ theme }: ThemeProps) => theme.typography.fonts.semiBold};
   text-align: center;
