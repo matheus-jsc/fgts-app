@@ -57,17 +57,6 @@ Certifique-se de ter um ambiente de desenvolvimento configurado para React Nativ
    npm install -g expo-cli
    ```
 
-4. Inicie o projeto:
-   ```bash
-   # Usando Yarn
-   yarn start
-   
-   # Ou usando npx
-   npx expo start
-   ```
-
-5. Siga as instruções no terminal para abrir o app no emulador/dispositivo físico ou no navegador com o Expo Go.
-
 ## Executando o Projeto
 
 ### Desenvolvimento
