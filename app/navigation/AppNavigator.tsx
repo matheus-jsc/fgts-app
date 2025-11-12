@@ -5,8 +5,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Import das telas
 import { HomeScreen } from '../features/Home/containers/HomeScreen';
 import { ResultScreen } from '../features/Result/containers/ResultScreen';
+import { RootStackParamList } from './types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const AppNavigator: React.FC = () => {
   return (
@@ -30,6 +31,10 @@ export const AppNavigator: React.FC = () => {
             title: 'Resultado',
             presentation: 'card',
             gestureEnabled: true,
+            headerShown: true,
+            headerBackTitleVisible: false,
+            headerTitleStyle: { color: 'transparent' },
+            headerTransparent: true,
           }}
         />
       </Stack.Navigator>

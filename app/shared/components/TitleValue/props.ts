@@ -1,7 +1,7 @@
 import { TextStyle } from 'react-native';
 
 export interface TitleValueProps {
-  value: string;
+  value: number;
   color?: string;
   style?: TextStyle;
 }

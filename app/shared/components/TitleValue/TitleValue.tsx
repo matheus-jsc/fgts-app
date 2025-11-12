@@ -5,9 +5,8 @@ import {
   Value, 
 } from './TitleValue.styles';
 
-const formatCurrency = (value: string): { integer: string; decimal: string } => {
-  const number = parseFloat(value) || 0;
-  const formatted = number.toLocaleString('pt-BR', {
+const formatCurrency = (value: number): { integer: string; decimal: string } => {
+  const formatted = value.toLocaleString('pt-BR', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
   });
