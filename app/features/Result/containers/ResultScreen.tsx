@@ -1,30 +1,31 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { useTheme } from 'styled-components/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../navigation/types';
+import {
+  Title,
+  ResultImage,
+  Content,
+  Subtitle,
+  FooterText,
+  Footer
+} from './ResultScreen.styles';
+import { Images } from '../../../theme';
+import { TitleValue } from '../../../shared/components';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Result'>;
 
-const ResultScreen = ({ route }: Props) => {
-  const theme = useTheme();
-  // const { amount, birthDate, hasBirthdayThisYear } = route.params;
-  
+export const ResultScreen = ({}: Props) => {
   return (
-    <View style={{ 
-      flex: 1, 
-      backgroundColor: theme.colors.background,
-      padding: theme.spacing.md
-    }}>
-      <Text style={{ 
-        color: theme.colors.text.primary,
-        fontSize: theme.typography.h1.fontSize,
-        marginBottom: theme.spacing.md
-      }}>
-        Resultado
-      </Text>
-    </View>
+      <>
+        <ResultImage source={Images.results} resizeMode="cover"/>
+        <Content>
+          <Title>{'Olá Matheus!'}</Title>
+          <Subtitle>{'Você pode receber até'}</Subtitle>
+          <TitleValue value={'12500.65'}/>
+          <Footer>
+            <FooterText>*Esta simulação traz valores aproximados. Para calcular o valor exato, entre em contato com o Smile Co. ou consulte seu saldo no app do FGTS.</FooterText>
+          </Footer>
+        </Content>
+      </>
   );
 };
-
-export default ResultScreen;

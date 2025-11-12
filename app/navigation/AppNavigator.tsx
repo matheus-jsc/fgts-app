@@ -5,7 +5,7 @@ import { RootStackParamList } from './types';
 
 // Import das telas
 import { HomeScreen } from '../features/Home/containers/HomeScreen';
-import ResultScreen from '../features/Result/containers/ResultScreen';
+import { ResultScreen } from '../features/Result/containers/ResultScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -29,7 +29,7 @@ export const AppNavigator: React.FC = () => {
           component={ResultScreen}
           options={{
             title: 'Resultado',
-            presentation: 'modal',
+            presentation: 'card',
             gestureEnabled: true,
           }}
         />

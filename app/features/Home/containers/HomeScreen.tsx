@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, StatusBar } from 'react-native';
 import { useTheme } from 'styled-components/native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../../navigation/types';
 import { Icons } from '@shared/utils';
 import { Masks } from 'react-native-mask-input';
 
@@ -46,8 +49,20 @@ export const HomeScreen = () => {
     }
   };
 
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, 'Home'>>();
+
   const handleSubmit = (): void => {
-    console.log(formData);
+    console.log('Dados do formulário:', formData);
+    
+    // Converter o valor do saldo para número (removendo caracteres não numéricos e convertendo para float)
+    const amount = parseFloat(formData.fgtsBalance.replace(/[^0-9,-]+/g, '').replace(',', '.')) || 0;
+    
+    // Navegar para a tela de Resultado com os dados do formulário
+    navigation.navigate('Result', {
+      amount,
+      birthDate: formData.birthMonth.toISOString(),
+      hasBirthdayThisYear: new Date().getMonth() >= formData.birthMonth.getMonth()
+    });
   };
 
   return (
