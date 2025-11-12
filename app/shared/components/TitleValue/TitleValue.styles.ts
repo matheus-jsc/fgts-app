@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import { StyledTitleTextProps } from './types';
-import { Theme } from 'app/theme/types';
+import { Theme } from 'app/theme/entities';
 
 interface ThemeProps {
   theme: Theme;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView, StatusBar } from 'react-native';
+import { KeyboardAvoidingView, Platform, ScrollView, StatusBar, Alert } from 'react-native';
 import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -9,7 +9,7 @@ import { Masks } from 'react-native-mask-input';
 
 import { Input, Button, MonthPicker } from '@shared/components';
 import { Background } from '../components';
-
+import { validateForm } from '../validations/schema';
 import { FormData } from '../entities';
 
 import {
@@ -51,18 +51,27 @@ export const HomeScreen = () => {
 
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, 'Home'>>();
 
-  const handleSubmit = (): void => {
-    console.log('Dados do formulário:', formData);
-    
-    // Converter o valor do saldo para número (removendo caracteres não numéricos e convertendo para float)
-    const amount = parseFloat(formData.fgtsBalance.replace(/[^0-9,-]+/g, '').replace(',', '.')) || 0;
-    
-    // Navegar para a tela de Resultado com os dados do formulário
-    navigation.navigate('Result', {
-      amount,
-      birthDate: formData.birthMonth.toISOString(),
-      hasBirthdayThisYear: new Date().getMonth() >= formData.birthMonth.getMonth()
-    });
+  const handleSubmit = async (): Promise<void> => {
+    try {
+      const { isValid, errors } = await validateForm(formData);
+      
+      if (!isValid) {
+        setErrors(errors);
+        return;
+      }
+      
+      setErrors({});
+      
+      const amount = parseFloat(formData.fgtsBalance.replace(/[^0-9,-]+/g, '').replace(',', '.')) || 0;
+      
+      navigation.navigate('Result', {
+        amount,
+        birthDate: formData.birthMonth.toISOString(),
+        hasBirthdayThisYear: new Date().getMonth() >= formData.birthMonth.getMonth()
+      });
+    } catch {
+      Alert.alert('Erro', 'Ocorreu um erro ao processar o formulário. Tente novamente.');
+    }
   };
 
   return (

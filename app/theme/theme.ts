@@ -1,4 +1,4 @@
-import { Theme } from './Entities';
+import { Theme } from './entities';
 
 declare module 'styled-components' {
   export interface  DefaultTheme extends Theme {}
