@@ -17,7 +17,16 @@ export const lightTheme: Theme = {
       secondary: '#6B7280',
       disabled: '#9CA3AF',
       inverted: '#FFFFFF',
+      titleValue: '#004bd4'
     },
+    input: {
+      borderActive: '#004bd4',
+      borderDisabled: '#9CA3AF'
+    },
+    icon: {
+      primary: '#FFFFFF',
+      secondary: '#9CA3AF'
+    }
   },
   spacing: {
     xs: 4,
@@ -71,13 +80,24 @@ export const darkTheme: Theme = {
   ...lightTheme,
   colors: {
     ...lightTheme.colors,
-    background: '#121212',
+    background: '#0F1115',
     surface: '#1E1E1E',
+    primary: '#181818',
+    secondary: '#26457bff',
     text: {
       primary: '#E0E0E0',
       secondary: '#9CA3AF',
       disabled: '#6B7280',
-      inverted: '#121212',
+      inverted: '#E0E0E0',
+      titleValue: '#26457bff',
     },
+    input: {
+      borderActive: '#26457bff',
+      borderDisabled: '#9CA3AF'
+    },
+    icon: {
+      primary: '#9CA3AF',
+      secondary: '#9CA3AF'
+    }
   },
 };

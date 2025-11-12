@@ -56,7 +56,7 @@ export const ModalContent = styled(View)`
   border-top-right-radius: ${({ theme }: ThemeProps) => theme.radius.lg}px;
   padding: ${({ theme }: ThemeProps) => theme.spacing.lg}px;
   max-height: 70%;
-  height: 350px;
+  height: 400px;
   width: 100%;
 `;
 
@@ -90,7 +90,7 @@ export const MonthText = styled(Text)<MonthButtonProps>`
   font-size: ${({ theme }: ThemeProps) => theme.typography.caption.fontSize}px;
   line-height: ${({ theme }: ThemeProps) => theme.typography.caption.lineHeight}px;
   color: ${({ theme, isSelected }: MonthButtonProps & ThemeProps) => 
-    isSelected ? theme.colors.surface : theme.colors.text.primary};
+    isSelected ? theme.colors.text.inverted : theme.colors.text.primary};
   font-family: ${({ theme }: ThemeProps) => theme.typography.fonts.semiBold};
   text-align: center;
 `;
@@ -111,12 +111,4 @@ export const DragHandle = styled(View)`
   align-self: center;
   margin-top: 8px;
   margin-bottom: 16px;
-`;
-
-export const YearText = styled(Text)`
-  font-size: 18px;
-  font-weight: 600;
-  color: #111827;
-  margin: 0 16px;
-  font-family: 'Inter-SemiBold';
 `;

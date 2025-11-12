@@ -59,11 +59,11 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
       {label && <Label>{label}</Label>}
       <Button onPress={() => setModalVisible(true)}>
         <IconContainer>
-          <Icons.chevronDown size={12} color={theme.colors.text.disabled} />
+          <Icons.chevronDown size={12} color={theme.colors.icon.secondary} />
         </IconContainer>
         <ButtonText>{formatDisplayDate(selectedDate)}</ButtonText>
         <IconContainer>
-          <Icons.calendar size={12} color={theme.colors.text.disabled} />
+          <Icons.calendar size={12} color={theme.colors.icon.secondary} />
         </IconContainer>
       </Button>
       <Modal

@@ -7,7 +7,7 @@ interface ThemeProps {
 }
 
 export const TitleText = styled.Text<StyledTitleTextProps>`
-  color: ${({ theme, color }: { theme: Theme; color?: string }) => color || theme.colors.primary};
+  color: ${({ theme, color }: { theme: Theme; color?: string }) => color || theme.colors.text.titleValue};
   font-family: ${({ theme }: ThemeProps) => theme.typography.fonts.bold};
   font-size: ${({ theme }: ThemeProps) => theme.typography.h0.fontSize}px;
   line-height: ${({ theme }: ThemeProps) => theme.typography.h0.lineHeight}px;

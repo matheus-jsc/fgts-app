@@ -11,6 +11,15 @@ export interface Theme {
       secondary: string;
       disabled: string;
       inverted: string;
+      titleValue: string;
+    };
+    input: {
+      borderActive: string;
+      borderDisabled: string;
+    };
+    icon: {
+      primary: string;
+      secondary: string;
     };
   };
   spacing: {

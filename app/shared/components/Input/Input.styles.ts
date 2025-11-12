@@ -28,8 +28,8 @@ export const InputContainer = styled.View<InputContainerProps>`
     hasError 
       ? theme.colors.error 
       : isFocused 
-        ? theme.colors.primary 
-        : theme.colors.text.disabled};
+        ? theme.colors.input.borderActive 
+        : theme.colors.input.borderDisabled};
   background-color: ${({ theme }: ThemeProps) => theme.colors.surface};
   padding: 0 12px;
   height: ${({ theme }: ThemeProps) => theme.spacing.xxl}px;

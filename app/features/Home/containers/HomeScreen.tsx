@@ -73,7 +73,7 @@ export const HomeScreen = () => {
             <Container>
               <Header>
                 <LogoContainer>
-                  <Icons.smile size={30} color={theme.colors.surface} />
+                  <Icons.smile size={30} color={theme.colors.icon.primary} />
                 </LogoContainer>
                 <Title>{'Antecipe seu\nSaque-Aniversário'}</Title>
                 <Subtitle>Use uma grana que já é sua e saia do aperto</Subtitle>
