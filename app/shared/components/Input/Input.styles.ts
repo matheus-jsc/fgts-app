@@ -1,41 +1,57 @@
 import styled from 'styled-components/native';
 import { TextInput as RNTextInput } from 'react-native';
+import { DefaultTheme } from 'styled-components';
+
+interface ThemeProps {
+  theme: DefaultTheme;
+}
+
+interface InputContainerProps {
+  isFocused: boolean;
+  hasError: boolean;
+}
 
 export const Container = styled.View`
-  margin-bottom: 16px;
+  margin-bottom: ${({ theme }: ThemeProps) => theme.spacing.md}px;
   width: 100%;
 `;
 
 export const Label = styled.Text`
-  font-size: 14px;
-  color: #4B5563;
-  margin-bottom: 8px;
-  font-family: 'Inter-Medium';
+  font-family: ${({ theme }: ThemeProps) => theme.typography.fonts.regular};
+  font-size: ${({ theme }: ThemeProps) => theme.typography.caption.fontSize}px;
+  line-height: ${({ theme }: ThemeProps) => theme.typography.caption.lineHeight}px;
+  color: ${({ theme }: ThemeProps) => theme.colors.text.primary};
+  margin-bottom: ${({ theme }: ThemeProps) => theme.spacing.sm}px;
 `;
 
-export const InputContainer = styled.View<{ isFocused: boolean; hasError: boolean }>`
+export const InputContainer = styled.View<InputContainerProps>`
   flex-direction: row;
   align-items: center;
   border-width: 1px;
-  border-radius: 8px;
-  border-color: ${({ isFocused, hasError }) => 
-    hasError ? '#EF4444' : isFocused ? '#3B82F6' : '#D1D5DB'};
-  background-color: #FFFFFF;
+  border-radius: ${({ theme }: ThemeProps) => theme.radius.md}px;
+  border-color: ${({ isFocused, hasError, theme }: InputContainerProps & ThemeProps) => 
+    hasError 
+      ? theme.colors.error 
+      : isFocused 
+        ? theme.colors.primary 
+        : theme.colors.text.disabled};
+  background-color: ${({ theme }: ThemeProps) => theme.colors.surface};
   padding: 0 12px;
-  height: 48px;
+  height: ${({ theme }: ThemeProps) => theme.spacing.xxl}px;
 `;
 
 export const InputField = styled(RNTextInput)`
   flex: 1;
-  font-size: 16px;
-  color: #111827;
+  font-size: ${({ theme }: ThemeProps) => theme.typography.body.fontSize}px;
+  color: ${({ theme }: ThemeProps) => theme.colors.text.primary};
   padding: 12px 0;
-  font-family: 'Inter-Regular';
+  font-family: ${({ theme }: ThemeProps) => theme.typography.fonts.regular};
 `;
 
 export const ErrorText = styled.Text`
-  font-size: 12px;
-  color: #EF4444;
-  margin-top: 4px;
-  font-family: 'Inter-Regular';
+  font-size: ${({ theme }: ThemeProps) => theme.typography.caption.fontSize - 2}px;
+  line-height: ${({ theme }: ThemeProps) => theme.typography.caption.lineHeight - 2}px;
+  color: ${({ theme }: ThemeProps) => theme.colors.error};
+  margin-top: ${({ theme }: ThemeProps) => theme.spacing.xs / 2}px;
+  font-family: ${({ theme }: ThemeProps) => theme.typography.fonts.regular};
 `;

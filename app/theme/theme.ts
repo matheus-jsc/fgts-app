@@ -6,8 +6,8 @@ declare module 'styled-components' {
 
 export const lightTheme: Theme = {
   colors: {
-    primary: '#356DF3',
-    secondary: '#5B8AFF',
+    primary: '#004bd4',
+    secondary: '#3366ff',
     background: '#F7F8FA',
     surface: '#FFFFFF',
     error: '#FF3B30',
@@ -16,6 +16,7 @@ export const lightTheme: Theme = {
       primary: '#171A1F',
       secondary: '#6B7280',
       disabled: '#9CA3AF',
+      inverted: '#FFFFFF',
     },
   },
   spacing: {
@@ -38,6 +39,11 @@ export const lightTheme: Theme = {
       medium: 'Montserrat-Medium',
       semiBold: 'Montserrat-SemiBold',
       bold: 'Montserrat-Bold',
+    },
+    h0: {
+      fontSize: 32,
+      lineHeight: 40,
+      fontWeight: 'bold',
     },
     h1: {
       fontSize: 24,
@@ -71,6 +77,7 @@ export const darkTheme: Theme = {
       primary: '#E0E0E0',
       secondary: '#9CA3AF',
       disabled: '#6B7280',
+      inverted: '#121212',
     },
   },
 };

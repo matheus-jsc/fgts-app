@@ -10,6 +10,7 @@ export interface Theme {
       primary: string;
       secondary: string;
       disabled: string;
+      inverted: string;
     };
   };
   spacing: {
@@ -33,6 +34,11 @@ export interface Theme {
       semiBold: string;
       bold: string;
     },
+    h0: {
+      fontSize: number;
+      lineHeight: number;
+      fontWeight: string;
+    };
     h1: {
       fontSize: number;
       lineHeight: number;

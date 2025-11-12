@@ -6,7 +6,7 @@ import { RootStackParamList } from '../../../navigation/types';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Result'>;
 
-export const ResultScreen = ({ route }: Props) => {
+const ResultScreen = ({ route }: Props) => {
   const theme = useTheme();
   // const { amount, birthDate, hasBirthdayThisYear } = route.params;
   
@@ -26,3 +26,5 @@ export const ResultScreen = ({ route }: Props) => {
     </View>
   );
 };
+
+export default ResultScreen;

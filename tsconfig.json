@@ -5,7 +5,8 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "app/*": ["./app/*"]
+      "app/*": ["./app/*"],
+      "@shared/*": ["./app/shared/*"]
     },
     "skipLibCheck": true,
     "resolveJsonModule": true,

@@ -1,36 +1,33 @@
 import React, { useState, forwardRef } from 'react';
-import { TextInputProps, TextInput as RNTextInput } from 'react-native';
+import { TextInput as RNTextInput } from 'react-native';
 import MaskInput from 'react-native-mask-input';
+import { useTheme } from 'styled-components/native';
 import { 
   Container, 
   Label, 
   InputContainer, 
   InputField, 
-  ErrorText 
+  ErrorText
 } from './Input.styles';
-
-interface InputProps extends TextInputProps {
-  label?: string;
-  error?: string;
-  mask?: (string | RegExp)[];
-  containerStyle?: object;
-}
+import { InputProps } from './types';
 
 const Input = forwardRef<RNTextInput, InputProps>(
-  ({ label, error, mask, containerStyle, ...rest }, ref) => {
+  ({ label, error, mask, containerStyle, ...otherProps }, ref) => {
+    const theme = useTheme();
+    
     const [isFocused, setIsFocused] = useState(false);
 
     const handleFocus = () => {
       setIsFocused(true);
-      if (rest.onFocus) {
-        rest.onFocus({} as any);
+      if (otherProps.onFocus) {
+        otherProps.onFocus({} as any);
       }
     };
 
     const handleBlur = () => {
       setIsFocused(false);
-      if (rest.onBlur) {
-        rest.onBlur({} as any);
+      if (otherProps.onBlur) {
+        otherProps.onBlur({} as any);
       }
     };
 
@@ -47,15 +44,15 @@ const Input = forwardRef<RNTextInput, InputProps>(
               mask={mask}
               onFocus={handleFocus}
               onBlur={handleBlur}
-              placeholderTextColor="#9CA3AF"
+              placeholderTextColor={theme.colors.text.disabled}
               style={{
                 flex: 1,
-                fontSize: 16,
-                color: '#111827',
-                padding: 12,
-                fontFamily: 'Inter-Regular',
+                fontSize: theme.typography.caption.fontSize,
+                color: theme.colors.text.primary,
+                padding: 0,
+                fontFamily: theme.typography.fonts.regular,
               }}
-              {...rest}
+              {...otherProps}
             />
           ) : (
             <InputField
@@ -63,7 +60,7 @@ const Input = forwardRef<RNTextInput, InputProps>(
               onFocus={handleFocus}
               onBlur={handleBlur}
               placeholderTextColor="#9CA3AF"
-              {...rest}
+              {...otherProps}
             />
           )}
         </InputContainer>

@@ -17,7 +17,6 @@ export default function App() {
         'Montserrat-SemiBold': require('./assets/fonts/Montserrat-SemiBold.ttf'),
         'Montserrat-Medium': require('./assets/fonts/Montserrat-Medium.ttf'),
         'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.ttf'),
-        'Montserrat-Light': require('./assets/fonts/Montserrat-Light.ttf'),
       });
       setFontsLoaded(true);
     }
