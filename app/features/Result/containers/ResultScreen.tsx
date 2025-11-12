@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { StatusBar } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from 'app/navigation/types';
@@ -19,7 +19,11 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Result'>;
 
 export const ResultScreen = ({ route }: Props) => {
   const { name, fgtsBalance } = route.params;
-  const result = calculateFGTS(currencyStringToNumber(fgtsBalance));
+  
+  const result = useMemo(() => 
+    calculateFGTS(currencyStringToNumber(fgtsBalance)),
+    [fgtsBalance]
+  );
   
   return (
     <>

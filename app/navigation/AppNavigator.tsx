@@ -33,8 +33,11 @@ export const AppNavigator: React.FC = () => {
             gestureEnabled: true,
             headerShown: true,
             headerBackTitleVisible: false,
-            headerTitleStyle: { color: 'transparent' },
+            headerTitle: '',
             headerTransparent: true,
+            headerShadowVisible: false,
+            headerBackButtonMenuEnabled: false
+
           }}
         />
       </Stack.Navigator>
