@@ -46,7 +46,7 @@ Certifique-se de ter um ambiente de desenvolvimento configurado para React Nativ
 2. Instale as dependências:
    ```bash
    # Usando npm (recomendado)
-   npm install
+   npm install --legacy-peer-deps
 
    # ou usando Yarn
    yarn
